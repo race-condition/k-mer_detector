@@ -29,7 +29,7 @@ def kmer(s):
     if(len(ret) or len(ret) > 0):
         return 'green'
     else:
-        return 'false'
+        return 'red'
 
 
 @app.route('/<x>')
@@ -39,9 +39,10 @@ def hello(x):
 
     if(var == 'green'):
         ret = ser.write('7')
-    else:
+    elif(var == 'red'):
         ret = ser.write('8')
-
+    else:
+        return 'Pailander'
     if(ret):
         return 'Exito %s' % x
     return 'NOO %s' % x
